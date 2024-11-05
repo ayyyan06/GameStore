@@ -7,17 +7,21 @@ body{
     font-family: 'Inter';
     font-family: 'Red Hat Display';    
     overflow-y: scroll; /* Полоса прокрутки всегда отображается */
-    
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #f0f8ff, #bababa);
+
 }
 .wrapper{
     background: linear-gradient(135deg, #f0f8ff, #bababa);
+    display: flex;
+    flex-direction: column;
 }
 
 
 
 .wrapper{
-    display: flex;
-    flex-direction: column;
+    
     /* height: 100%; */
     width: 100%;
 }
@@ -29,7 +33,7 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 40px;
+    padding: 20px 40px;
     margin-bottom: 50px;
 }
 .header__menu-elements{
@@ -48,19 +52,6 @@ header{
     width: 40px;
     height: 40px;
 
-}
-
-
-.photo-login{
-    display: flex;
-    flex-direction: row;
-    /* width: 200px; */
-    gap: 30px;
-}
-.login a{
-    text-align: center;
-    line-height: 40px;
-    color:white;
 }
 
 .sales-name{
@@ -461,7 +452,7 @@ background-position:left;
 .games__list {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
 }
 .game__item {
     overflow: hidden;
@@ -479,6 +470,7 @@ background-position:left;
 .game__item:hover{
     transform: scaleY(105%);
     transform: scaleX(101%);
+    /* box-shadow: 0px 0px 10px 1px inset rgba(70, 70, 70, 0.451); */
 }
 .game-img {
     /* border-radius: 5px; */
@@ -493,8 +485,6 @@ background-position:left;
     padding: 20px;
     font-weight: 500;
     color: #002556d3;
-    transition: all 100ms ease;
-    padding-bottom: 2px;
 }
 .game-genres {
     grid-area: 2/2/3/3;
@@ -507,13 +497,10 @@ background-position:left;
     padding: 0 20px;
     color: #002556;
     color: rgb(104, 104, 104);
-}
 
-.game-name:hover{
-    text-decoration:underline 1.5px;
-}
 
-.game-buy{
+}
+.game-delete{
     margin: 0 auto;
     grid-area: 2/3/3/4;
     text-align: center;
@@ -523,17 +510,19 @@ background-position:left;
     height: 40px;
     border: 1px solid black;
     letter-spacing: 2px;
-    transition: all 0.05s ease;
+    transition: all 0.2s ease;
     background-color: #0061a200;
-    /* margin-top: 5; */
     color: #002556;
-
-
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 10px;
 }
-.game-buy:hover{
-    transform:scale(102%)
+.game-delete:hover{
+    transform:scale(102%);
+    background-color: rgba(228, 36, 36, 0.815);
+    border: none;
 }
-.game-buy:active{
+.game-delete:active{
     transform: scale(95%);
 }
 
@@ -690,7 +679,9 @@ background-position:left;
 
 
 
-
+.main{
+    flex: 1;
+}
 
 footer{
     /* display: flex;
@@ -731,4 +722,31 @@ footer{
     letter-spacing: 2px;
     font-size: 15px;
 
+}
+
+
+
+.empty{
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+
+
+.sum{
+    margin-top: 30px;
+    background-color: #0077ff;
+    position: relative;
+    right: 0;
+    
+    /* margin-left: 80%; */
+    /* text-align: right; */
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    height: 50px;
+    font-size: 25px;
+    
 }

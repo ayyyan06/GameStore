@@ -1,4 +1,4 @@
-// console.log(GAMES)
+renderGames(['Shooter', 'MMO', 'Open World', 'Western', 'Battle Royal'])
 
 
 const news = document.querySelectorAll('.news__item')
@@ -14,19 +14,6 @@ news.forEach(element => {
 
     })
 });
-
-
-// const game5 = document.querySelector('.gitem5')
-// console.log(game5.children[2].dataset.genres)
-
-
-const sound = document.getElementById('sound')
-sound.addEventListener('click', () => {
-    let mySound = new Audio('game-images/sound.mp3')
-    mySound.play()
-    
-
-})
 
 
 
@@ -62,16 +49,14 @@ controls.forEach((contr)=> {
                     show(image - 1);
                     break;
             }
-            
-            // if(image!==0){
-            //     show(image-1)
-            // }
-            // else{
-            //     show(2)
-            // }
         }
     })
 })
+
+
+
+// games filter
+
 
 
 document.querySelector('.filter-btn').addEventListener('click', function () {
@@ -80,22 +65,6 @@ document.querySelector('.filter-btn').addEventListener('click', function () {
 
     
 });
-
-// const sw = document.querySelector('button.filter-btn')
-// sw.addEventListener('click', () => {
-//     if(sound.style.backgroundColor = '#0e1e49'){
-//         sound.style.backgroundColor = 'black'
-//     }
-//     else{
-//         sound.style.backgroundColor = '#0e1e49'
-//     }
-// })
-
-
-
-
-
-
 const filter = document.querySelector('.filter-dropdown')
 
 const filterEl = document.querySelectorAll('.filter-el')
@@ -104,21 +73,13 @@ const filterEl = document.querySelectorAll('.filter-el')
 
 filterEl.forEach((genre) => {
     genre.addEventListener('click', (genre) =>{
-        genre.preventDefault
+        // genre.preventDefault
 
-        // console.log(genre.target.classList)
-
-        // console.log(className)
         if(genre.target.classList.contains('filterActive')){
-            // console.log('asdas', genre, genre.className)
             genre.target.classList.remove('filterActive')
-            // showGames(genre)
-            // back(genre.target.dataset.filter)
         }
         else{
-            // console.log('nooo')
             genre.target.classList.add('filterActive')
-            // showGames(genre.target.dataset.filter)
         }
 
         let arr = []
@@ -133,102 +94,160 @@ filterEl.forEach((genre) => {
 
         if(arr.length>0){
             console.log(arr)
-            showGameNew(arr)
+            renderGames(arr)
         }
         else{
-            showAll()
+            renderGames(['Shooter', 'MMO', 'Open World', 'Western', 'Battle Royal'])
         }
-
-
     })
 })
 
 
-function showAll(){
-    const games = document.querySelectorAll('.game__item')
-    games.forEach(item => {
-        if(item.classList.contains('disable')){
-            item.classList.remove('disable')
-        }
-    })
-}
-
-function showGameNew(arr){
-    const games = document.querySelectorAll('.game__item')
-
-    games.forEach((game) => {
-        const gameGenre = game.children[2]
-
-        if(arr.includes(gameGenre.dataset.genres)){
-            console.log('jbsdkds')
-            if(game.classList.contains('disable')){
-                console.log(game.classList)
-                game.classList.remove('disable')
-            }
-        }
-        else{
-            console.log('nooo')
-            game.classList.add('disable')
-
-        }
-
-        // if(gameGenre.dataset.genres === genre){
-        //     console.log('yeaa')
-        // }
-        // else{
-        //     game.classList.add('disable')
-        //     console.log('noo')
-        // }
-    })
-}
 
 function renderGames(games){
-    games.forEach(gamesItem => {
-        const game = document.createElement(`
-            <div class="game__item gitem1">
-                <div class="game-img"></div>
-                <div class="game-name">CS2</div>
-                <div class="game-genres" data-genres="Shooter"><strong>Genres</strong> ${GAMES[0].genre}</div>
-                <div class="game-price"><strong>Price</strong>  7500</div>
-                <button type="button" class="game-buy">BUY</button>   
-            </div>   
-        `)
-    })
+    const gameList = document.querySelector('.games__list')
+    if(gameList !== ''){
+        gameList.innerHTML = ''
+    }
+    for(let i = 0; i < games.length; i++){
+        GAMES.forEach(item => {
+            if(item.genre === games[i]){
+                // console.log(item.name)
+                const game = document.createElement('div')
+                game.className = `game__item gitem${item.id}`
+                game.innerHTML = `
+                    <div class="game-img"></div>
+                    <div class="game-name">${item.name}</div>
+                    <div class="game-genres" data-genres="${item.genre}"><strong>Genres</strong> ${item.genre}</div>
+                    <div class="game-price"><strong>Price</strong>  ${item.price}</div>
+                    <button type="button" class="game-buy">BUY</button>   
+                `
+                gameList.append(game)
+            }
+        })   
+    }   
 }
 
 
-function back(genre){
-    const games = document.querySelectorAll('.game__item')
-    games.forEach((game) => {
-        const gameGenre = game.children[2]
-        // console.log(genre)
-        // console.log(gameGenre    .dataset.genres)
-        if(gameGenre.dataset.genres === genre){
-            console.log('yeaa')
-        }
-        else{
-            game.classList.remove('disable')
-            console.log('noo')
+// games buying
+
+let basket = []
+
+if(localStorage.getItem('basket') === ''){
+    console.log('empty', localStorage)
+    basket = []
+}
+else{
+    basket = localStorage.getItem('basket').split(',') 
+    console.log(basket)   
+    console.log('not empty', localStorage)
+}
+console.log(basket)
+
+const buyGame = document.querySelectorAll('.game-buy')
+console.log(buyGame)
+buyGame.forEach(x =>{
+    x.addEventListener('click', (buy) => {   
+        buy = x.parentElement
+        value = buy.children[1].innerHTML
+        console.log(value)
+
+        let exist = false
+        console.log(basket)
+
+        basket.forEach(game => {
+            if(game === value){
+                exist = true
+            }
+        })
+
+        if(!exist){
+            basket.push(buy.children[1].innerHTML)
+            console.log(basket)
+            localStorage.setItem('basket', basket)
+            console.log(localStorage)
         }
     })
-}
+})
+console.log(localStorage)
 
-function showGames(genre){
-    const games = document.querySelectorAll('.game__item')
-    games.forEach((game) => {
-        const gameGenre = game.children[2]
-        // console.log(genre)
-        // console.log(gameGenre    .dataset.genres)
-        if(gameGenre.dataset.genres === genre){
-            console.log('yeaa')
-        }
-        else{
-            game.classList.add('disable')
-            console.log('noo')
-        }
-    })
-}
 
+document.querySelector('body').addEventListener('DOM    ')
+
+
+
+
+
+
+
+
+
+
+
+// function showAll(){
+    //     const games = document.querySelectorAll('.game__item')
+    //     games.forEach(item => {
+    //         if(item.classList.contains('disable')){
+    //             item.classList.remove('disable')
+    //         }
+    //     })
+    // }
+
+// function back(genre){
+//     const games = document.querySelectorAll('.game__item')
+//     games.forEach((game) => {
+//         const gameGenre = game.children[2]
+//         // console.log(genre)
+//         // console.log(gameGenre    .dataset.genres)
+//         if(gameGenre.dataset.genres === genre){
+//             console.log('yeaa')
+//         }
+//         else{
+//             game.classList.remove('disable')
+//             console.log('noo')
+//         }
+//     })
+// }
+
+// function showGames(genre){
+//     const games = document.querySelectorAll('.game__item')
+//     games.forEach((game) => {
+//         const gameGenre = game.children[2]
+//         // console.log(genre)
+//         // console.log(gameGenre    .dataset.genres)
+//         if(gameGenre.dataset.genres === genre){
+//             console.log('yeaa')
+//         }
+//         else{
+//             game.classList.add('disable')
+//             console.log('noo')
+//         }
+//     })
+// }
+
+
+
+
+// function showGameNew(arr){
+//     const games = document.querySelectorAll('.game__item')
+
+//     games.forEach((game) => {
+//         const gameGenre = game.children[2]
+
+//         if(arr.includes(gameGenre.dataset.genres)){
+//             console.log('jbsdkds')
+//             if(game.classList.contains('disable')){
+//                 console.log(game.classList)
+//                 game.classList.remove('disable')
+//             }
+//         }
+//         else{
+//             console.log('nooo')
+//             game.classList.add('disable')
+
+//         }
+//     })
+// }
 
 
 

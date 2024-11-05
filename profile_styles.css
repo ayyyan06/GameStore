@@ -8,6 +8,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-family: 'Red Hat Display';
 }
 header{
     height: 60px;
@@ -178,4 +179,17 @@ footer{
     font-weight: 100;
     letter-spacing: 2px;
     font-size: 15px;
+}
+
+
+.photo-login{
+    display: flex;
+    flex-direction: row;
+    /* width: 200px; */
+    gap: 30px;
+}
+.login a{
+    text-align: center;
+    line-height: 40px;
+    color:white;
 }
