@@ -1,20 +1,9 @@
-function isEmailValid(email) {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
-}
-
-function hasLetters(phone) {
-    const letterRegex = /[a-zA-Z]|[а-яА-Я]/;
-    return letterRegex.test(phone);
-}
-
 const form = document.getElementById('add-form');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     const inputs = document.getElementsByClassName('input-field');
     let hasError = false;
-    let correctLogin = false
 
     for (let i = 0; i < inputs.length; i++) {
         const input = inputs[i];
@@ -49,37 +38,11 @@ form.addEventListener('submit', (event) => {
     if (!hasError) {
         const name = document.getElementById('name').value
         const password = document.getElementById('password')
-
-
-
         let userFound = false
-
-
         const names = Object.keys(localStorage)
-        // console.log(names)
         for(let j = 0; j < names.length; j++){
             if(names[j] === name){
                 userFound = true
-                
-
-
-
-
-                // console.log(names[j],'yeees')
-                // correctLogin = true
-                // const passwordFromStorage = localStorage.getItem(names[j])
-                // console.log(passwordFromStorage)
-                // if(password.value === passwordFromStorage){
-                //     console.log('nicee')
-                //     window.location.href = 'web_Assignment_1.html'
-                // }
-                // else{
-                //     console.log(password.parentElement)
-                //     const incorrectPassword = document.createElement('div')
-                //     incorrectPassword.className = 'incorrectPassword'
-                //     incorrectPassword.innerText = 'Incorrect Password'
-                //     password.parentElement.append(incorrectPassword)
-                // }
             }
         }
 
@@ -91,7 +54,6 @@ form.addEventListener('submit', (event) => {
             localStorage.setItem(name, password.value)
             console.log(localStorage)
             alert('Account created successfully!')
-            // window.location.href = 'autorization.html'
         }
     }
 });

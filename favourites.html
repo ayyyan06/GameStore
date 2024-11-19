@@ -15,60 +15,83 @@
     
 </head>
 <body>
+    
 
-
-    <header class="header">
-        <nav class="header__menu">
-            <ul class="header__menu-elements">
-                <li class="header__menu-el" id="main">
-                    <a href="web_Assignment_1.html">Main</a>
-                </li>
-                <li class="header__menu-el" id="about">
-                    <a href="favourites.html">About Us</a>
-                </li>
-                <li class="header__menu-el" id="fav">
-                    <a href="#!">Favourites</a>
-                </li>
-                <li class="header__menu-el" id="profile">
-                    <a href="Profile_page.html">Profile</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="profile__photo">
-            <img src="images_of_project/main page profile [hoto.png" alt="">
-        </div>
-    </header>
-
-
-    <main class="main">
-        <div class="favourites">
-            
-        <div class="games">
-            <div class="games__top">
-                <p class="games__title">GAMES</p>
-                <!-- <div class="filter-dropdown">
-                    <button class="filter-btn" id="sound">Filter</button>
-                    <div class="dropdown-content">
-                        <button type="button" class="filter-el" data-filter="Shooter">Shooter</button>
-                        <button type="button" class="filter-el" data-filter="MMO">MMO</button>
-                        <button type="button" class="filter-el" data-filter="Open World">Open World</button>
-                        <button type="button" class="filter-el" data-filter="Western">Western</button>
-                        <button type="button" class="filter-el" data-filter="Battle Royal">Battle Royal</button>
+    <div class="wrapper">
+        <header class="header">
+            <nav class="header__menu">
+                <ul class="header__menu-elements">
+                    <li class="header__menu-el" id="main">
+                        <a href="web_Assignment_1.html">Main</a>
+                    </li>
+                    <li class="header__menu-el" id="about">
+                        <a href="#!">About Us</a>
+                    </li>
+                    <li class="header__menu-el" id="fav">
+                        <a href="favourites.html">Favourites</a>
+                    </li>
+                    <li class="header__menu-el" id="profile">
+                        <a href="Profile_page.html">Profile</a>
+                    </li>
+                </ul>
+                <div class="burger">&#9776;</div>
+                <div class="burger-menu burger-disable">
+                    <div class="burger-el">
+                        <a href="web_Assignment_1.html">Main</a>
                     </div>
-                </div>   -->
+                    <div class="burger-el">
+                        <a href="#!">About Us</a>
+                    </div>
+                    <div class="burger-el">
+                        <a href="favourites.html">Favourites</a>
+                    </div>
+                    <div class="burger-el">
+                        <a href="Profile_page.html">Profile</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="profile__photo">
+                <button class="switch">switch</button>
+    
+                <div class="login">
+                    <a href="autorization.html">Login</a>
+                </div>
+                <img src="images_of_project/main page profile [hoto.png" alt="">
             </div>
-            <div class="games__list"></div>
-        </div>
-    </main>
-
-
-    <footer>
-        <p class="footer-1">Created By</p>
-        <p class="footer-2">Kunirbaev Ayan, SE-2321</p>
-        <p class="footer3">All Rights Reserved</p>
-    </footer> 
+        </header>
+    
+    
+        <main class="main">
+            <div class="favourites">
+                
+            <div class="games">
+                <div class="games__top">
+                    <p class="games__title">GAMES</p>
+                    <!-- <div class="filter-dropdown">
+                        <button class="filter-btn" id="sound">Filter</button>
+                        <div class="dropdown-content">
+                            <button type="button" class="filter-el" data-filter="Shooter">Shooter</button>
+                            <button type="button" class="filter-el" data-filter="MMO">MMO</button>
+                            <button type="button" class="filter-el" data-filter="Open World">Open World</button>
+                            <button type="button" class="filter-el" data-filter="Western">Western</button>
+                            <button type="button" class="filter-el" data-filter="Battle Royal">Battle Royal</button>
+                        </div>
+                    </div>   -->
+                </div>
+                <div class="games__list"></div>
+            </div>
+        </main>
+    
+    
+        <footer>
+            <p class="footer-1">Created By</p>
+            <p class="footer-2">Kunirbaev Ayan, SE-2321</p>
+            <p class="footer3">All Rights Reserved</p>
+        </footer>
+    </div> 
     <script src="games.js"></script>
     <script defer src="favourites script.js"></script>    
+    <!-- <script src="switch.js"></script> -->
 </body>
 
 </html>

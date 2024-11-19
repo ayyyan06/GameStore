@@ -9,25 +9,42 @@ body{
     flex-direction: column;
     justify-content: space-between;
     font-family: 'Red Hat Display';
+    background: linear-gradient(135deg, #f0f8ff, #bababa);
+    width: 100vw;
+    overflow-x: hidden;
+
 }
-header{
+
+.black{
+    background: #000;
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+
+
+
+
+
+.header{
     height: 60px;
-    width: 100%;
+    width: 100vw;
     background-color: #0e1e49;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     padding: 20px 40px;
     margin-bottom: 50px;
+    /* gap: 50px; */
+    align-items: center;
+    justify-content: space-between;
 }
 .header__menu-elements{
     text-transform: uppercase;
+    gap: 5vw;
     letter-spacing: 2px;
     font-size: 15px;
     display: flex;
     flex-direction: row;
-    gap: 100px; 
+    transition: all 0.1s ease;
 }
 .header__menu-elements a{
     color: #FFFFFF;
@@ -38,8 +55,22 @@ header{
     width: 40px;
     height: 40px;
 }
+.current{
+    margin-top: 50px;
+    font-size: 20px;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
 
-
+.switch{
+    height: 100%;
+    color: white;
+    background-color: #ffffff00;
+    line-height: 40px;
+    text-align: center;
+    /* text-transform: uppercase; */
+    font-size: 16px;
+}
 
 main{
     padding: 50px;
@@ -48,12 +79,19 @@ main{
 .main{
     display: flex;
     flex-direction: row;
-    gap: 300px;
+    gap: 10vw;
     /* height: 100vh; */
-    /* justify-content: space-between; */
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
+@media(max-width:888px){
+    .main{
+        justify-content: center;
+    }
+}
+
 .main__photo img{
-    width: 150%;
+    width: 100%;
     border-radius: 100%;
     margin-bottom: 40px;
 }
@@ -165,6 +203,7 @@ footer{
     letter-spacing: 1px;
     font-weight: 100;
     margin-bottom: 10px;
+    transition: all 0.1s ease;
 }
 .footer-2 {
     margin-bottom: 20px;
@@ -174,11 +213,14 @@ footer{
     letter-spacing: 3px;
     padding-bottom: 10px;
     border-bottom: 1px solid  rgba(255, 255, 255, 0.411);
+    transition: all 0.1s ease;
+
 }
 .footer3 {
     font-weight: 100;
     letter-spacing: 2px;
     font-size: 15px;
+    transition: all 0.1s ease;
 }
 
 
@@ -192,4 +234,101 @@ footer{
     text-align: center;
     line-height: 40px;
     color:white;
+}
+
+
+
+
+.burger{
+    display: none;
+    /* position: relative; */
+    /* top: 50px; */
+    /* width: 30px; */
+    color: white;
+    font-size: 28px;
+    transform: scaleX(120%);
+}
+.burger-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    left: 80px;
+    z-index: 10;
+    display: none;
+
+}
+.burger-disable{
+    display: none;
+}
+.burger-menu a{
+    color: black;
+}
+
+@media(max-width: 850px){
+    .header__menu-elements{
+        gap: 1vw;
+        font-size: 10px;
+    }
+    .photo-login .switch, a{
+        font-size: 13px
+    }
+}
+
+
+@media(max-width: 750px){
+    
+    .burger-menu{
+        display: flex;
+    }
+    .burger-disable{
+        display: none;
+    }
+    .main__info{
+        margin: 0 0px;
+        padding: 30px;
+        width: 80vw;
+    }
+    .form{
+        width: 100%;
+    }
+    .burger{
+        display: block;
+    }
+    .header__menu-elements{
+        display: flex;
+        flex-direction: column;
+        display: none;
+    }
+    .input-field{
+        width: 100%;
+    }
+}
+@media(max-width: 700px){
+    .footer-1 {
+        font-size: 8px;
+        text-transform: none;
+        opacity: 1;
+        letter-spacing: 1px;
+        font-weight: 100;
+        margin-bottom: 8px;
+    }
+    .footer-2 {
+        margin-bottom: 10px;
+        width: 290px;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid  rgba(255, 255, 255, 0.411);
+    }
+    .footer3 {
+        font-weight: 100;
+        letter-spacing: 2px;
+        font-size: 10px;
+    }
 }

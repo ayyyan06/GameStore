@@ -30,21 +30,29 @@ function renderGames(games){
                         <div class="game-price"><strong>Price</strong>  ${item.price}</div>
                         <button type="button" class="game-delete">Delete</button>   
                     `
+                    if(item.image === '' || !item.image){
+                        const img = game1.children[0]
+                        img.style.backgroundImage = `url('game-images/empty.png')`
+                    }
+                    else{
+                        const img = game1.children[0]
+                        img.style.backgroundImage = `url(${item.image})`
+                    }
                     gameList.append(game1)
                 }
             })   
         } 
-        const sum = document.createElement('div')
-        sum.className = 'sum'
-        sum.innerHTML = 'your sum'
-        document.querySelector('.games').append(sum)
+        // const sum = document.createElement('div')
+        // sum.className = 'sum'
+        // sum.innerHTML = 'your sum'
+        // document.querySelector('.games').append(sum)
     }
 }
 
 
 document.querySelector('.games__list').addEventListener('click', (e) => {
     if(e.target.classList.contains('game-delete')) {
-        const newArr =[]
+        const newArr = []
         const parent = e.target.parentElement
         const name = parent.children[1].innerHTML
         console.log(name)
@@ -71,5 +79,52 @@ document.querySelector('.games__list').addEventListener('click', (e) => {
         else{
 
         }
+    }
+})
+
+const burger = document.querySelector('.burger')
+
+burger.addEventListener('click', () => {
+    // console.log('burger')
+    const burgerEl = document.querySelector('.burger-menu').classList
+    if(burgerEl.contains('burger-disable')){
+        burgerEl.remove('burger-disable')
+        console.log(burgerEl)
+        console.log('removed')
+    }
+    else{
+        burgerEl.add('burger-disable')
+        console.log(burgerEl)
+        console.log('added')
+    }
+})
+
+const switchMode = document.querySelector('.switch')
+
+switchMode.addEventListener('click', () => {
+    const wrapper = document.querySelector('.wrapper')
+    const sales = document.querySelector('.games__top')
+    const games = document.querySelector('.games__title')
+    console.log(wrapper)
+    console.log(sales)
+    if(wrapper.classList.contains('black')){
+        wrapper.classList.remove('black')
+        // sales.classList.remove('black')
+        sales.classList.remove('black')
+        sales.style.color = 'black'
+        sales.style.borderBottom = '1px solid black'
+        games.style.color = 'black'
+        games.style.borderBottom = '1px solid black'
+    }
+    else{
+        wrapper.classList.add('black')
+        sales.classList.add('black')
+        sales.style.color = 'white'
+        sales.style.borderBottom = '1px solid white'
+        games.style.color = 'white'
+        games.style.borderBottom = '1px solid white'
+
+
+
     }
 })

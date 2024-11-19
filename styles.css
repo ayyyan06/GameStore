@@ -12,7 +12,11 @@ body{
 .wrapper{
     background: linear-gradient(135deg, #f0f8ff, #bababa);
 }
-
+.black{
+    background: #000;
+    color: white;
+    border-bottom: 1px solid white;
+}
 
 
 .wrapper{
@@ -38,7 +42,58 @@ header{
     font-size: 15px;
     display: flex;
     flex-direction: row;
-    gap: 100px; 
+    gap: 5vw; 
+    /* justify-content: space-between; */
+    /* max-width: 100%; */
+    transition: all 0.3s ease;
+}
+
+@media(max-width: 850px){
+    .header__menu-elements{
+        gap: 1vw;
+        font-size: 10px;
+    }
+    .photo-login .switch, a{
+        font-size: 13px
+    }
+}
+
+.burger{
+    display: none;
+    /* position: relative; */
+    /* top: 50px; */
+    /* width: 30px; */
+    color: white;
+    font-size: 28px;
+    transform: scaleX(120%);
+}
+.burger-menu{
+    /* display: none; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    left: 70px;
+    z-index: 10;
+}
+
+.burger-menu a{
+    color: black;
+}
+
+@media(max-width: 750px){
+    .burger{
+        display: block;
+    }
+    .header__menu-elements{
+        display: flex;
+        flex-direction: column;
+        display: none;
+    }
 }
 .header__menu-elements a{
     color: #FFFFFF;
@@ -50,6 +105,16 @@ header{
 
 }
 
+.switch{
+    height: 100%;
+    color: white;
+    background-color: #ffffff00;
+    line-height: 40px;
+    text-align: center;
+    /* text-transform: uppercase; */
+    font-size: 16px;
+}
+
 
 .photo-login{
     display: flex;
@@ -58,6 +123,7 @@ header{
     gap: 30px;
 }
 .login a{
+    /* text-transform: uppercase;   */
     text-align: center;
     line-height: 40px;
     color:white;
@@ -97,11 +163,10 @@ header{
 
 .sale{
     position: absolute;
-    top: 0;
+    /* top: 0; */
     background-image: url('images_of_project/colda.webp');
-    margin-left: 40px;
-    margin-right: 40px;
-    width: calc(100% - 80px);
+    width: calc(100vw - 80px);
+    margin: 0 40px;
     height: 500px;
     border-radius: 10px;
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 20%, rgba(0, 0, 0, 0.6) 50%), 90% rgb(0, 0, 0) url('images_of_project/colda.webp');
@@ -110,6 +175,9 @@ header{
     color: white;
     opacity: 0;
     transition: all 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .sale1{
@@ -120,8 +188,9 @@ background-position:left;
 }
 .sale2{
     background-image: url('game-images/dirt\ rally.jpeg');
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, rgb(0, 0, 0)), 90% rgb(0, 0, 0) url('game-images/dirt\ rally.jpeg');
-    position: absolute;
+    /* background: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, rgb(0, 0, 0)), 90% rgb(0, 0, 0) url('game-images/dirt\ rally.jpeg'); */
+    /* background-repeat: no-repeat; */
+    /* position: absolute;
     color: white;
     top: 0;
     
@@ -132,14 +201,15 @@ background-position:left;
     display: flex;
     flex-direction: row-reverse;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 }
 .sale3{
     
     background-image: url('game-images/back4blood.jpg');
+    /* background-position: center; */
+    /* background-size: cover; */
     /* background: linear-gradient(to right, rgba(255   , 255, 255, 0) 50%, rgba(255, 255, 255, 1)), 10% rgba(255, 255, 255, 1) url('game-images/back4blood.jpg'); */
-    position: absolute;
-    background-position: center;
+    /* position: absolute;
     color: white;
     top: 0;
     margin-left: 40px;
@@ -150,13 +220,13 @@ background-position:left;
     display: flex;
     flex-direction: row-reverse;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 }
 .sale-container{
     padding: 50px;
     padding-right: 70px;
     text-align: right;
-    width: 600px;
+    /* width: 600px; */
     height: 500px;
     position: relative;
     display: flex;
@@ -260,9 +330,15 @@ background-position:left;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 20px;
-
-    
 }
+
+@media(max-width: 1000px){
+    .news__list{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .news__item {
     width: 100%;
     min-height: 300px;  
@@ -343,6 +419,7 @@ background-position:left;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
+
 
 
 
@@ -474,20 +551,15 @@ background-position:left;
     /* background: linear-gradient(135deg, #add8e6, #f0f0f0);  */
     /* background: linear-gradient(135deg, #003b7a82, #f0f0f0);  */
     background-color: #fff;
+    background-position: center;
+    background-size: cover;
     transition: all 0.2s ease;
 }
 .game__item:hover{
     transform: scaleY(105%);
     transform: scaleX(101%);
 }
-.game-img {
-    /* border-radius: 5px; */
 
-    background-image: url('game-images/cs2.jpg');
-    background-repeat: no-repeat;
-    object-fit: cover;
-    grid-area: 1/1/4/2;
-}
 .game-name {
     font-size: 25px;
     padding: 20px;
@@ -536,7 +608,17 @@ background-position:left;
 .game-buy:active{
     transform: scale(95%);
 }
+.game-img {
+    /* border-radius: 5px; */
 
+    background-image: url('game-images/empty.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: cover;
+    grid-area: 1/1/4/2;
+}
+/* 
 .gitem2 .game-img{
     background-image: url('game-images/dota2.jpeg');
     background-size: cover;
@@ -552,11 +634,7 @@ background-position:left;
     background-size: cover;
     background-position: center 0;
 }
-.gitem5 .game-img{
-    background-image: url('game-images/rdr2.jpeg');
-    background-size: cover;
-    background-position: center 0;
-}
+
 .gitem6 .game-img{
     background-image: url('game-images/pubg.jpeg');
     background-size: cover;
@@ -567,8 +645,17 @@ background-position:left;
     background-size: cover;
     background-position: center 0;
 }
+.gitem8 .game-img{
+    background-image: url('images_of_project/colda.webp');
+    background-size: cover;
+    background-position: center 0;
+} */
 
-
+/* .gitem5 .game-img{
+    background-image: url('game-images/rdr2.jpeg');
+    background-size: cover;
+    background-position: center 0;
+} */
 
 
 .disable{
@@ -731,4 +818,186 @@ footer{
     letter-spacing: 2px;
     font-size: 15px;
 
+}
+
+.burger-menu{
+    /* display: none; */
+}
+.burger-disable{
+    display: none;
+}   
+
+@media(max-width: 700px){
+       
+    .burger-menu{
+        display: flex;
+    }
+    .burger-disable{
+        display: none;
+    }
+    .header{
+        padding: 0 30px;
+    }
+    .news__title, .sales-name, .games__title{
+        font-size: 20px;
+    }
+    .sale1, .sale2, .sale3{
+        /* width: calc(100%-60px); */
+
+        width: auto;
+        margin: 0px 30px;
+        position: absolute;
+    }
+    .sale-container{
+        width: 100%;
+        padding: 30px;
+        height: 300px;
+        /* font-size: 20px; */
+    }
+    .controls {
+        /* position: relative; */
+        top: 0;
+        line-height: 300px;
+        font-size: 50px;
+    }
+    .next{
+        right: 35px;
+    }
+    .prev{
+        left: 35px;
+    }
+    .sale-title{
+        font-size: 14px;
+    }
+    .sale-descr{
+        width: 60%;
+        font-size: 9px;
+        margin-top: 20px;
+        height: 150px;
+        overflow: scroll;
+
+    }
+    .slider{
+        height: 300px;
+    }
+    .sale{
+        height: 300px;
+    }
+    .sale-btn{
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+        align-self: flex-end;
+        margin-top: 10px;
+        width: 120px;
+        height: 40px;
+        border-radius: 5px;
+    }
+    .sale-btn p{
+        font-size: 10px;
+    }
+    .sales-name{
+        margin: 0px 30px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .news__item{
+        min-height: 0px;
+        height: 150px;
+        /* overflow: scroll; */
+    }
+    .news{
+        padding: 30px 30px;
+        margin: 30px 0;
+    }
+    .news__item-title{
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    .news__item-descr{
+        font-size: 8px;
+        max-height: 90px;
+        overflow: scroll;
+    }
+    .games{
+        padding: 0px 30px;
+    }
+    .games__top{
+        margin-bottom: 30px;
+        height: 45px;   
+    }
+    .game__item{
+        /* height: 80px; */
+    }
+    .game__item {
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 2fr 3fr 1fr;
+        grid-template-rows: 30px 30px 30px;
+        box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.3);
+        /* border-radius: 5px; */
+        background-color: #767676;
+        /* background: linear-gradient(135deg, #add8e6, #f0f0f0);  */
+        /* background: linear-gradient(135deg, #003b7a82, #f0f0f0);  */
+        background-color: #fff;
+        transition: all 0.2s ease;
+    }
+    .game-buy{
+        margin-top: 5px;
+        height: 20px;
+        width: 80%;
+        line-height: 100%;
+        font-size: 9px;
+    }
+    .game-name, .game-genres, .game-price{
+        padding: 10px 15px;
+        padding-bottom: 10px;
+
+        font-size: 15px;
+    }
+    .game-genres{
+        position: relative;
+        top: 12px;
+    }
+    .game-name{
+        padding-top: 10px;
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .games__list{
+        gap: 8px;
+    }
+    footer{
+        width: 100%;
+        background-color: #0e1e49;
+        padding-left: 30px;
+        padding-bottom: 30px;
+        padding-top: 30px;
+        color: white;
+        font-size: 20px;
+    }
+    
+    .footer-1 {
+        font-size: 8px;
+        text-transform: none;
+        opacity: 1;
+        letter-spacing: 1px;
+        font-weight: 100;
+        margin-bottom: 8px;
+    }
+    .footer-2 {
+        margin-bottom: 10px;
+        width: 290px;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid  rgba(255, 255, 255, 0.411);
+    }
+    .footer3 {
+        /* text-transform: ; */
+        font-weight: 100;
+        letter-spacing: 2px;
+        font-size: 10px;
+    }
 }

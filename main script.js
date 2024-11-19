@@ -15,7 +15,7 @@ news.forEach(element => {
     })
 });
 
-
+ 
 
 const images = document.querySelectorAll('.sale')
 
@@ -53,23 +53,16 @@ controls.forEach((contr)=> {
     })
 })
 
-
-
 // games filter
-
-
 
 document.querySelector('.filter-btn').addEventListener('click', function () {
     const dropdown = document.querySelector('.dropdown-content');
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-
-    
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';    
 });
+
 const filter = document.querySelector('.filter-dropdown')
 
 const filterEl = document.querySelectorAll('.filter-el')
-
-
 
 filterEl.forEach((genre) => {
     genre.addEventListener('click', (genre) =>{
@@ -122,6 +115,14 @@ function renderGames(games){
                     <div class="game-price"><strong>Price</strong>  ${item.price}</div>
                     <button type="button" class="game-buy">BUY</button>   
                 `
+                if(item.image === '' || !item.image){
+                    const img = game.children[0]
+                    img.style.backgroundImage = `url('game-images/empty.png')`
+                }
+                else{
+                    const img = game.children[0]
+                    img.style.backgroundImage = `url(${item.image})`
+                }
                 gameList.append(game)
             }
         })   
@@ -172,12 +173,22 @@ buyGame.forEach(x =>{
 console.log(localStorage)
 
 
-document.querySelector('body').addEventListener('DOM    ')
+const burger = document.querySelector('.burger')
 
-
-
-
-
+burger.addEventListener('click', () => {
+    // console.log('burger')
+    const burgerEl = document.querySelector('.burger-menu').classList
+    if(burgerEl.contains('burger-disable')){
+        burgerEl.remove('burger-disable')
+        console.log(burgerEl)
+        console.log('removed')
+    }
+    else{
+        burgerEl.add('burger-disable')
+        console.log(burgerEl)
+        console.log('added')
+    }
+})
 
 
 
