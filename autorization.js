@@ -50,7 +50,7 @@ form.addEventListener('submit', (event) => {
                 console.log(passwordFromStorage)
                 if(password.value === passwordFromStorage){
                     console.log('nicee')
-                    window.location.href = 'web_Assignment_1.html'
+                    window.location.href = 'index.html'
                 }
                 else{
                     console.log(password.parentElement)
